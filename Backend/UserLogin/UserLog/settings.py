@@ -9,8 +9,6 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
-from pathlib  import Path
 from pathlib  import Path
 from datetime import timedelta
 
@@ -48,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'userApi',
+     'userApi',
 ]
 
 SIMPLE_JWT = {
@@ -69,7 +67,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 
@@ -79,7 +77,9 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json'
+
 }
 
 AUTH_USER_MODEL= 'userApi.user'
@@ -114,6 +114,7 @@ DATABASES = {
         'PASSWORD': 'd9e36310ab424fa4d6ddae9da6ee59cc060650bca74c6eea43f6995e25e9a1d9',
         'HOST': 'ec2-3-228-86-183.compute-1.amazonaws.com',
         'PORT': '5432',
+        'TEST': {'MIRROR': 'default',},
     }
 }
 
@@ -160,5 +161,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-#import django_heroku
-#django_heroku.settings(locals())
+
+import django_heroku
+django_heroku.settings(locals())
