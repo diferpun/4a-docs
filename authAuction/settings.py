@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-25%pl)vw!8gi^cj@an#lp%oz#(-vob@e32guj1qw*4ykyzfrh='
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -99,10 +99,10 @@ WSGI_APPLICATION = 'authAuction.wsgi.application'
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-'NAME': 'de69et99ntv4ts',
-'USER': 'cjjvnjninkzadi',
-'PASSWORD': '0f55a9985533bb8f3ca62700990b89f4a01ca394d0ed8d8ca6c9a6521fd74c30',
-'HOST': 'ec2-52-72-155-37.compute-1.amazonaws.com',
+'NAME': '',
+'USER': '',
+'PASSWORD': '',
+'HOST': '',
 'PORT': '5432',
 }
 }
@@ -150,5 +150,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-import django_heroku
-django_heroku.settings(locals())
+#import django_heroku
+#django_heroku.settings(locals())
